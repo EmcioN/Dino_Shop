@@ -2,5 +2,24 @@
 {% load static %}
 
 {% block content %}
-<h1 class="display-4 text-success">It works</h1>
+<div class="container">
+    <div class="row">      
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img class="card-img-top" src="" alt="Dinosaur Image">
+          <div class="card-body">
+            <h5 class="card-title">T-rex</h5>
+            <p class="card-text">Health: 155%, Attack: 255%, Server: EU1</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Buy</button>
+              </div>
+              <small class="text-muted">$9.99</small>
+            </div>
+          </div>
+        </div>
+      </div>      
+    </div>
+  </div>
 {% endblock %}
