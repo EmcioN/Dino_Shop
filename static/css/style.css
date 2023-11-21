@@ -73,3 +73,15 @@ body {
 .padtop {
     padding-top: 1rem;
 }
+
+.gamers-paragraph {
+    font-size: 3rem;      
+}
+
+.social-icon {
+    font-size: 3rem; 
+}
+
+.email-text {
+    font-weight: bold;
+}
