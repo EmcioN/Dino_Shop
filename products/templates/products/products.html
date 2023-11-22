@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Our Dinosaurs</h2>
+    <div class="row">
+        {% for dinosaur in dinosaurs %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ dinosaur.image.url }}" class="card-img-top" alt="{{ dinosaur.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ dinosaur.name }}</h5>
+                    <p class="card-text">{{ dinosaur.description }}</p>
+                    <p class="card-text">Health: {{ dinosaur.health }}</p>
+                    <p class="card-text">Attack Power: {{ dinosaur.attack_power }}</p>
+                    <p class="card-text">Server: {{ dinosaur.server }}</p>
+                    <p class="card-text">Price: ${{ dinosaur.price }}</p>
+                    <a href="#" class="btn btn-primary">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
