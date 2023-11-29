@@ -12,3 +12,11 @@ class Dinosaur(models.Model):
 
     def __str__(self):
         return self.name
+        
+class Sale(models.Model):
+    dinosaur = models.ForeignKey(Dinosaur, on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=0)
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.dinosaur.name} - {self.quantity}"        

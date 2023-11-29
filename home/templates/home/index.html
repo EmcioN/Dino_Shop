@@ -15,21 +15,21 @@
       <div class="card mb-4 shadow-sm bg-dark text-white padding">
         <div class="row no-gutters">
           <div class="col-md-8">
-            <img class="img-fluid" src="{% static 'images/t-rex.jpeg' %}" alt="Dinosaur Image" style="width: 100%; height: auto; object-fit: cover;">
+            <img class="img-fluid" src="{{ most_selling_dinosaur.image.url }}" alt="{{ most_selling_dinosaur.name }}" style="width: 100%; height: auto; object-fit: cover;">
           </div>
           <div class="col-md-4 d-flex flex-column">
             <div class="card-body">
-              <h5 class="card-title">T-rex</h5>
-              <p class="card-text">Health: 155%</p>
-              <p class="card-text">Attack: 255%</p>
-              <p class="card-text">Server: EU1</p>
+              <h5 class="card-title">{{ most_selling_dinosaur.name }}</h5>
+              <p class="card-text">Health: {{ most_selling_dinosaur.health }}%</p>
+              <p class="card-text">Attack: {{ most_selling_dinosaur.attack_power }}%</p>
+              <p class="card-text">Server: {{ most_selling_dinosaur.server }}</p>
             </div>
             <div class="mt-auto p-3">
               <div class="btn-group">
                 <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                 <button type="button" class="btn btn-sm btn-outline-secondary">Buy</button>
               </div>
-              <small class="text-white">$9.99</small>
+              <small class="text-white">${{ most_selling_dinosaur.price }}</small>
             </div>
           </div>
         </div>

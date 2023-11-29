@@ -2,6 +2,11 @@
 
 {% block content %}
 <div class="container mt-4">
+            {% if user.is_authenticated and user.is_superuser %}
+                <a href="{% url 'add_dinosaur' %}" class="btn btn-primary mt-3">Add New Dinosaur</a>
+            {% endif %}
+        </div>
+    </div>
     <h2 class="text-center mb-4">Our Dinosaurs</h2>
     <div class="row">
         {% for dinosaur in dinosaurs %}
