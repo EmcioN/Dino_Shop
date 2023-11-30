@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container padtop padbot">
+    <h2>Contact Us</h2>
+    <p>If you have any problems or questions, feel free to reach out to us:</p>
+    <p>Email: dinoshop@gmail.com</p>
+    <div class="social-media-links">        
+        <a href="https://www.facebook.com/" class="social-icon" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com/home" class="social-icon" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <h3>Send us a message</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Send</button>
+    </form>
+</div>
+{% endblock %}
