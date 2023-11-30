@@ -89,3 +89,14 @@ body {
 .email-text {
     font-weight: bold;
 }
+
+.patch-note {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.patch-note h2 {
+    margin-top: 0;
+}

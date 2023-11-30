@@ -3,7 +3,7 @@ from products.models import Dinosaur
 from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required
 from .forms import ContactForm
-from .models import ContactMessage
+from .models import ContactMessage, PatchNote
 
 def index(request):    
     most_selling_dinosaur = Dinosaur.objects.order_by('-attack_power').first()
@@ -39,3 +39,7 @@ def contact(request):
 
 def success(request):
     return render(request, 'home/success.html')
+
+def patch_notes(request):
+    notes = PatchNote.objects.all().order_by('-created_at')
+    return render(request, 'news/patch_notes.html', {'notes': notes})    
