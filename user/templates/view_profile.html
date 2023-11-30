@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h2>{{ request.user.username }}'s Profile</h2>
+
+    <div class="profile-info">
+        <p><strong>Profile Picture:</strong></p>
+        <img src="{{ request.user.userprofile.profile_picture.url }}" alt="{{ request.user.username }}" class="img-thumbnail">
+        
+        <p><strong>Age:</strong> {{ request.user.userprofile.age }}</p>
+        <p><strong>Server:</strong> {{ request.user.userprofile.server }}</p>
+        <p><strong>Description:</strong> {{ request.user.userprofile.description }}</p>
+    </div>
+
+    <div class="social-media-links mt-3">
+        <a href="{{ request.user.userprofile.facebook }}" class="me-2"><i class="fab fa-facebook"></i></a>
+        <a href="{{ request.user.userprofile.twitter }}" class="me-2"><i class="fab fa-twitter"></i></a>
+        <a href="{{ request.user.userprofile.instagram }}"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <a href="{% url 'edit_profile' %}" class="btn btn-primary mt-3">Edit Profile</a>
+</div>
+{% endblock %}
