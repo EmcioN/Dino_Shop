@@ -26,8 +26,10 @@
             </div>
             <div class="mt-auto p-3">
               <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Buy</button>
+                {% if most_selling_dinosaur %}
+                <a href="{% url 'item_page' most_selling_dinosaur.id %}" class="btn btn-secondary">See More</a>                
+                <a href="{% url 'add_to_basket' most_selling_dinosaur.id %}" class="btn btn-primary">Add to Basket</a>
+                {% endif %}
               </div>
               <small class="text-white">${{ most_selling_dinosaur.price }}</small>
             </div>

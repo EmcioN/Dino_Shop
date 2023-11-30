@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>{{ dinosaur.name }}</h2>
+    <img src="{{ dinosaur.image.url }}" alt="{{ dinosaur.name }}" class="img-fluid">
+    <p>{{ dinosaur.description }}</p>
+    <p>Health: {{ dinosaur.health }}</p>
+    <p>Attack Power: {{ dinosaur.attack_power }}</p>
+    <p>Server: {{ dinosaur.server }}</p>
+    <p>Price: ${{ dinosaur.price }}</p>
+    
+    {% if dinosaur.video_url %}
+    <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/[video-id]" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

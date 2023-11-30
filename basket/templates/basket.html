@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+<div class="container padtop padbot">
+    <h2>Your Basket</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Dinosaur</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in basket_items %}
+            <tr>
+                <td>{{ item.dinosaur.name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>${{ item.dinosaur.price }}</td>
+                <td>${{ item.quantity|multiply:item.dinosaur.price }}</td>
+                <td>
+                    <a href="{% url 'increase_quantity' item.id %}" class="btn btn-sm btn-success">+</a>
+                    <a href="{% url 'decrease_quantity' item.id %}" class="btn btn-sm btn-warning">-</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">Your basket is empty.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if basket_items %}
+        <div class="text-right">
+            <p class="total-price">Total: ${{ total_price }}</p>
+            <a href="#" class="btn btn-primary ">Pay Now</a>
+        </div>
+    {% else %}    
+        <p>Your basket is empty.</p>
+    {% endif %}
+</div>
+{% endblock %}

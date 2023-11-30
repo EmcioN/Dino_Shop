@@ -5,6 +5,8 @@
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
+    <label for="id_video_url">Video URL:</label>
+    <input type="url" name="video_url" id="id_video_url">
     <button type="submit">Submit</button>
 </form>
 {% endblock %}

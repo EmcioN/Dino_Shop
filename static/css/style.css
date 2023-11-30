@@ -74,6 +74,10 @@ body {
     padding-top: 1rem;
 }
 
+.padbot {
+    padding-bottom: 1rem;
+}
+
 .gamers-paragraph {
     font-size: 3rem;      
 }

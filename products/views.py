@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Dinosaur, Sale
 from .forms import DinosaurForm
 
@@ -21,3 +21,7 @@ def add_dinosaur(request):
         form = DinosaurForm()
     
     return render(request, 'products/add_dinosaur.html', {'form': form})
+
+def item_page(request, dinosaur_id):
+    dinosaur = get_object_or_404(Dinosaur, id=dinosaur_id)
+    return render(request, 'item_page.html', {'dinosaur': dinosaur})    

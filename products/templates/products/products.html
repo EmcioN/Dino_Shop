@@ -20,7 +20,8 @@
                     <p class="card-text">Attack Power: {{ dinosaur.attack_power }}</p>
                     <p class="card-text">Server: {{ dinosaur.server }}</p>
                     <p class="card-text">Price: ${{ dinosaur.price }}</p>
-                    <a href="#" class="btn btn-primary">Buy Now</a>
+                    <a href="{% url 'add_to_basket' dinosaur.id %}" class="btn btn-primary">Buy Now</a>
+                    <a href="{% url 'item_page' dinosaur.id %}" class="btn btn-secondary">See More</a>
                 </div>
             </div>
         </div>
