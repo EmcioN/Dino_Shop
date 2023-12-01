@@ -51,3 +51,16 @@ def delete_dinosaur(request, dinosaur_id):
         dinosaur.delete()
         return redirect('all_dinosaurs')  
     return render(request, 'products/confirm_delete.html', {'dinosaur': dinosaur})
+
+def edit_dinosaur(request, dinosaur_id):
+    dinosaur = get_object_or_404(Dinosaur, id=dinosaur_id)
+
+    if request.method == 'POST':
+        form = DinosaurForm(request.POST, request.FILES, instance=dinosaur)
+        if form.is_valid():
+            form.save()
+            return redirect('all_dinosaurs')  
+    else:
+        form = DinosaurForm(instance=dinosaur)
+
+    return render(request, 'edit_dinosaur.html', {'form': form})
