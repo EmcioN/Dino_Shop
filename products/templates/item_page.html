@@ -2,6 +2,12 @@
 
 {% block content %}
 <div class="container mt-4">
+    {% if user.is_authenticated and user.is_superuser %}
+    <div class="text-right mb-3">
+        <a href="#" class="btn btn-primary">Edit</a>
+        <a href="{% url 'delete_dinosaur' dinosaur.id %}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this dinosaur?');">Delete</a>
+    </div>
+    {% endif %}
     <h2>{{ dinosaur.name }}</h2>
     <img src="{{ dinosaur.image.url }}" alt="{{ dinosaur.name }}" class="img-fluid">
     <p>{{ dinosaur.description }}</p>
@@ -11,8 +17,14 @@
     <p>Price: ${{ dinosaur.price }}</p>
     
     {% if dinosaur.video_url %}
-    <div class="video-container"> 
-        <iframe width="560" height="315" src='{{dinosaur.video_url}}' frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="video-container">
+                    <iframe src="{{ dinosaur.video_url }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
     </div>
     {% endif %}
 </div>

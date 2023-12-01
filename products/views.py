@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Dinosaur, Sale
 from .forms import DinosaurForm
 from urllib.parse import urlparse, parse_qs
+from django.contrib.auth.decorators import login_required, user_passes_test
+
 
 def all_dinosaurs(request):    
     dinosaurs = Dinosaur.objects.all()
@@ -37,3 +39,15 @@ def convert_youtube_url_to_embed(url):
         return embed_url
     else:
         return None
+
+def is_superuser(user):
+    return user.is_superuser
+
+@login_required
+@user_passes_test(is_superuser)
+def delete_dinosaur(request, dinosaur_id):
+    dinosaur = get_object_or_404(Dinosaur, id=dinosaur_id)
+    if request.method == 'POST':
+        dinosaur.delete()
+        return redirect('all_dinosaurs')  
+    return render(request, 'products/confirm_delete.html', {'dinosaur': dinosaur})
