@@ -52,6 +52,8 @@ def delete_dinosaur(request, dinosaur_id):
         return redirect('all_dinosaurs')  
     return render(request, 'products/confirm_delete.html', {'dinosaur': dinosaur})
 
+@login_required
+@user_passes_test(is_superuser)
 def edit_dinosaur(request, dinosaur_id):
     dinosaur = get_object_or_404(Dinosaur, id=dinosaur_id)
 
