@@ -2,11 +2,20 @@
 {% load allauth %}
 {% load socialaccount %}
 {% get_providers as socialaccount_providers %}
+
 {% if socialaccount_providers %}
     <hr>
-    {% element h2 %}
-        {% translate "Or use a third-party" %}
-    {% endelement %}
-    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+    <h2>{% translate "Or use a third-party" %}</h2>
+
+    <div class="social-login">
+        {% for provider in socialaccount_providers %}
+            {% if provider.id == "google" %}
+                <a href="{% provider_login_url provider.id process="login" %}" class="btn btn-danger btn-block">
+                    <i class="fab fa-google"></i> {% translate "Login with Google" %}
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+
     {% include "socialaccount/snippets/login_extra.html" %}
 {% endif %}
