@@ -12,6 +12,9 @@ class UserProfile(models.Model):
     twitter = models.URLField(blank=True)
     instagram = models.URLField(blank=True)
 
+    def get_transactions(self):
+        return self.user.checkout_set.all()
+
     def __str__(self):
         return self.user.username
 

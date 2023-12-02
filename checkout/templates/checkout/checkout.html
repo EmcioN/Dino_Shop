@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<script src="https://js.stripe.com/v3/"></script>
+
+<div class="container mt-4">
+    <h2>Checkout</h2>
+    <div class="row">
+        <div class="col-md-8">
+            <h3>Your Order</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Dinosaur</th>
+                        <th>Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in basket_items %}
+                        <tr>
+                            <td>{{ item.dinosaur.name }}</td>
+                            <td>${{ item.dinosaur.price }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <h4>Total: ${{ total_price }}</h4>
+        </div>
+        <div class="col-md-4">
+            <div class="card payment-card">
+                <div class="card-body">
+                    <h5 class="card-title">Payment Details</h5>
+                    <form action="{% url 'checkout' %}" method="post" id="payment-form">
+                        {% csrf_token %}
+                        <div id="card-element" class="my-4"></div>
+                        <button type="submit" class="btn btn-primary btn-block">Pay Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

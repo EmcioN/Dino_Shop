@@ -37,7 +37,7 @@
     {% if basket_items %}
         <div class="text-right">
             <p class="total-price">Total: ${{ total_price }}</p>
-            <a href="#" class="btn btn-primary ">Pay Now</a>
+            <a href="{% url 'checkout' %}" class="btn btn-primary ">Pay Now</a>
         </div>
     {% else %}    
         <p>Your basket is empty.</p>

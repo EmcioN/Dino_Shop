@@ -8,11 +8,11 @@
         </div>
     </div>
     <h2 class="text-center mb-4">Our Dinosaurs</h2>
-    <div class="row">
+    <div class="row no-margin-right">
         {% for dinosaur in dinosaurs %}
         <div class="col-md-4 mb-4">
             <div class="card">
-                <img src="{{ dinosaur.image.url }}" class="card-img-top" alt="{{ dinosaur.name }}">
+                <img src="{{ dinosaur.image.url }}" class="card-img-top img-fluid" alt="{{ dinosaur.name }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ dinosaur.name }}</h5>
                     <p class="card-text">{{ dinosaur.description }}</p>
