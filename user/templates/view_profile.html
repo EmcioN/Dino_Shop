@@ -7,7 +7,11 @@
 
     <div class="profile-info">
         <p><strong>Profile Picture:</strong></p>
-        <img src="{{ request.user.userprofile.profile_picture.url }}" alt="{{ request.user.username }}" class="img-thumbnail">
+        {% if request.user.userprofile.profile_picture and request.user.userprofile.profile_picture.url %}
+            <img src="{{ request.user.userprofile.profile_picture.url }}" alt="{{ request.user.username }}" class="img-thumbnail">
+        {% else %}
+            <p>No profile picture</p>
+        {% endif %}
         
         <p><strong>Age:</strong> {{ request.user.userprofile.age }}</p>
         <p><strong>Server:</strong> {{ request.user.userprofile.server }}</p>

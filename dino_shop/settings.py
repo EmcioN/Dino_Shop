@@ -29,9 +29,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG')
 
-ALLOWED_HOSTS = ['dino-shop-1cd8a0c1d01d.herokuapp.com']
+ALLOWED_HOSTS = ['dino-shop-1cd8a0c1d01d.herokuapp.com', '8000-emcion-dinoshop-3l3a4wcpwgh.ws-eu106.gitpod.io']
 
-CSRF_TRUSTED_ORIGINS = ['https://dino-shop-1cd8a0c1d01d.herokuapp.com/']
+CSRF_TRUSTED_ORIGINS = ['https://dino-shop-1cd8a0c1d01d.herokuapp.com/', 'https://8000-emcion-dinoshop-3l3a4wcpwgh.ws-eu106.gitpod.io']
 
 # Application definition
 
@@ -158,6 +158,7 @@ GOOGLE_PAY_MERCHANT_ID = os.environ.get('GOOGLE_PAY_MERCHANT_ID')
 
 STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY')
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
+STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET', '')
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -184,6 +185,21 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+    },
+}
 
 
 # Internationalization

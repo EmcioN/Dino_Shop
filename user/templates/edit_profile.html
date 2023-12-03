@@ -8,19 +8,7 @@
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="btn btn-primary">Update Profile</button>
-    </form>
-   
-    <div class="current-profile mt-4">
-        <h3>Current Profile Info:</h3>
-        <p>Profile Picture: <img src="{{ profile.profile_picture.url }}" alt="Profile Picture"></p>
-        <p>Age: {{ profile.age }}</p>
-        <p>Server: {{ profile.server }}</p>
-        <p>Description: {{ profile.description }}</p>
-        <div class="social-media-links mt-3">
-            <a href="{{ profile.facebook }}" class="me-2"><i class="fab fa-facebook"></i></a>
-            <a href="{{ profile.twitter }}" class="me-2"><i class="fab fa-twitter"></i></a>
-            <a href="{{ profile.instagram }}"><i class="fab fa-instagram"></i></a>
-        </div>
-    </div>
+    </form> 
+    
 </div>
 {% endblock %}

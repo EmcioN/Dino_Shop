@@ -9,7 +9,10 @@ from django.contrib.auth.models import User
 
 
 def view_profile(request):
-    profile = UserProfile.objects.get(user=request.user)
+    try:
+        profile = UserProfile.objects.get(user=request.user)
+    except UserProfile.DoesNotExist:
+        profile = None  
     return render(request, 'view_profile.html', {'profile': profile})
 
 @receiver(post_save, sender=User)
