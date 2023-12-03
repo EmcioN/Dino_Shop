@@ -5,17 +5,19 @@ from checkout.models import Checkout
 from django.contrib.auth.decorators import login_required
 from django.dispatch import receiver
 from django.db.models.signals import post_save
+from django.contrib.auth.models import User
 
 
 def view_profile(request):
     profile = UserProfile.objects.get(user=request.user)
     return render(request, 'view_profile.html', {'profile': profile})
 
-@receiver(post_save, sender=UserProfile)
+@receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
     if created:
         UserProfile.objects.create(user=instance)
-    instance.userprofile.save()
+    else:
+        UserProfile.objects.update_or_create(user=instance)
 
 def edit_profile(request):
     profile, created = UserProfile.objects.get_or_create(user=request.user)
