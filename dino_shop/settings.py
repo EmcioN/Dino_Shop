@@ -29,9 +29,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG')
 
-ALLOWED_HOSTS = ['8000-emcion-dinoshop-3l3a4wcpwgh.ws-eu106.gitpod.io']
+ALLOWED_HOSTS = ['dino-shop-1cd8a0c1d01d.herokuapp.com']
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-emcion-dinoshop-3l3a4wcpwgh.ws-eu106.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://dino-shop-1cd8a0c1d01d.herokuapp.com/']
 
 # Application definition
 
