@@ -29,7 +29,7 @@ def contact(request):
                 message=message
             )
 
-            send_mail(subject, message, request.user.email, ['your_email@example.com'])
+            send_mail(subject, message, request.user.email, ['dinoshopark@gmail.com'])
             
             return redirect('success_url')
     else:
