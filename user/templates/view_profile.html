@@ -21,25 +21,22 @@
     </div>
 
     <a href="{% url 'edit_profile' %}" class="btn btn-primary mt-3">Edit Profile</a>
-   
-    {% for transaction in transactions %}
-    <div class="card mt-4">
-        <div class="card-body">
-            <h5 class="card-title">Transaction on {{ transaction.created_at|date:"Y-m-d H:i" }}</h5>
-            <p class="card-text">Amount: {{ transaction.total_price }}</p>
-            <p class="card-text">Status: {{ transaction.status }}</p>    
-        </div>
-    </div>
-    {% empty %}
-    <p>No transactions found.</p>
-    {% endfor %}
 
     <div class="container">
-        <h2>{{ user.username }}'s Profile</h2>        
+        <h2>{{ user.username }}'s Transactions</h2>
         <h3>Past Transactions</h3>
         <ul>
             {% for checkout in user.checkout_set.all %}
-                <li>{{ checkout.created_at }} - ${{ checkout.total_price }}</li>
+                <li>
+                    {{ checkout.created_at }} - ${{ checkout.total_price }}
+                    <ul>
+                        {% for order_item in checkout.orderitem_set.all %}
+                            <li>{{ order_item.dinosaur.name }} x{{ order_item.quantity }}</li>
+                        {% empty %}
+                            <li>No items in this transaction.</li>
+                        {% endfor %}
+                    </ul>
+                </li>
             {% empty %}
                 <li>No transactions found.</li>
             {% endfor %}

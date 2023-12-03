@@ -12,7 +12,10 @@ def checkout(request):
     basket_items = BasketItem.objects.filter(user=request.user)
     total_price = sum(item.dinosaur.price * item.quantity for item in basket_items)
 
-    if request.method == 'POST':        
+    if request.method == 'POST':
+        username_in_game = request.POST.get('username_in_game')
+        server = request.POST.get('server')
+        email = request.POST.get('email')        
         token = request.POST.get('stripeToken')
         
         try:
@@ -25,7 +28,9 @@ def checkout(request):
 
             checkout = Checkout.objects.create(
                 user=request.user,
-                email=request.user.email,
+                email=email,
+                username_in_game=username_in_game,
+                server=server,                
                 total_price=total_price,
                 payment_method='Stripe',
                 transaction_id=charge.id,

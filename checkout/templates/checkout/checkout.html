@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<script src="https://js.stripe.com/v3/"></script>
+
 
 <div class="container mt-4">
     <h2>Checkout</h2>
@@ -31,6 +31,21 @@
                 <div class="card-body">
                     <h5 class="card-title">Payment Details</h5>
                     <form action="{% url 'checkout' %}" method="post" id="payment-form">
+                        {% csrf_token %}                        
+                        <input type="text" name="username_in_game" placeholder="Username in Game" class="form-control mb-3" required>
+                        <input type="text" name="server" placeholder="Server" class="form-control mb-3" required>
+                        <input type="email" name="email" placeholder="Email Address" class="form-control mb-3" required>                                                
+                        <div id="card-element" class="my-4"></div>
+                        <button type="submit" class="btn btn-primary btn-block">Pay Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card payment-card">
+                <div class="card-body">
+                    <h5 class="card-title">Payment Details</h5>
+                    <form action="{% url 'checkout' %}" method="post" id="payment-form">
                         {% csrf_token %}
                         <div id="card-element" class="my-4"></div>
                         <button type="submit" class="btn btn-primary btn-block">Pay Now</button>
@@ -40,5 +55,5 @@
         </div>
     </div>
 </div>
-
+<script src="https://js.stripe.com/v3/"></script>
 {% endblock %}
