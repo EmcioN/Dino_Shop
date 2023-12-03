@@ -21,12 +21,12 @@ document.addEventListener('DOMContentLoaded', function () {
     var card = elements.create("card", { style: style });
     card.mount("#card-element");
 
-    card.addEventListener('change', ({error}) => {
-        const displayError = document.getElementById('card-errors');
-        if (error) {
-            displayError.textContent = error.message;
+    card.addEventListener('change', function(event) {
+        var displayError = document.getElementById('card-errors');
+        if (event.error) {
+            displayError.textContent = event.error.message;
         } else {
-            displayError.textContent = 'card-errors';
+            displayError.textContent = '';
         }
     });
 
