@@ -180,7 +180,7 @@ Footer:
 
 ### Future Plans
 
-I planned to do more with the project. Due to the deadline, not everything was implemented as I would have liked. Login with Google has not been added yet, but it is planned to be added. Same with Google Pay. I use Stripe as a payment method but I would like to add Google Pay as a replacement method. The project lacks a polisher that would make the project look more professional.
+I planned to do more with the project. Due to the deadline, not everything was completed as I would have liked. Login with Google has not been added yet, but is planned to be added. Same with Google Pay. I use Stripe as a payment method, but I would like to add Google Pay as a fallback method. The design lacks a polisher that would give the design a more professional look. I didn't have enough time to add webhooks to stripe. I plan to expand the project and add other products, such as raw materials. A lot of work has to be put into such a project. Unfortunately, I work long shifts and don't have enough time to devote to the project. I did as much as I could and I'm partially satisfied with it.
 
 ### Tehnologies used
 #### Languages
@@ -207,9 +207,44 @@ I planned to do more with the project. Due to the deadline, not everything was i
 * [Stripe](https://stripe.com/) - Payment method 
 ### Testing
 #### Html Validator
+
+I had the least problems with html. The only thing we forget about is setting the appropriate hrefs. I really like using Django with Bootstrap because it simplifies things a lot.
+
+![css](/doc/images/csserr.png)
+
 #### Css Validator
+
+While testing CSS, I encountered several problems. After taking advice on stackoverflow, I decided to move on, because these are not serious errors. The page looks as intended, so it shouldn't be a problem
+
+![css](/doc/images/csserr.png)
+
 #### CI python Linter
+
+I had some fun with python. You can still probably find some bugs because everything was tested quickly due to lack of time. The command "python3 -m flake8" turned out to be a lot of help. At the beginning I had a lot of problems there, but I cleaned up some code and it looks much better. When creating the code, I relied on a tutorial from Code Institute Boutique Ado. I tried to follow along with him. Thanks to it, I managed to set up the databases correctly this time without any major problems. There are a few things that don't work, but due to the deadline I won't be able to fix them in time. The most important thing for me is that the store is operational.
+
+![clean](/doc/images/clean1.png)
+
+![clean](/doc/images/clean2.png)
+
+To be sure, I used CI python linter to make sure the code I wrote was correct
+
+![basket](/doc/images/basketp.png)
+
+![checkout](/doc/images/checkoutp.png)
+
+![home](/doc/images/homep.png)
+
+![product](/doc/images/productp.png)
+
+![settings](/doc/images/settingsp.png)
+
+![user](/doc/images/userp.png)
+
 #### Manual Testing
+I tested the project continuously during production. Most things were done by trial and error. I don't consider the project finished due to the lack of tests. There are two known errors in the project. I ran out of time. I didn't encounter any huge problems, but some of them took a lot of time. When switching to production I had a problem with static files. Back then I was using whitenoise and AWS S3. It was confusing for me so I decided to give up whitenoise. Due to my lack of attention, I had a few errors related to the wrong path. This time, I changed the database for production purposes with a tutorial from Code Institute and it went without any major problems. I plan to continue working on this project so that I can open this store someday.
+
+All buttons have been tested and work as intended. Fields that are supposed to be displayed only for Superuser work as they should. Adding, removing or editing dinosaurs from the superuser level works without problems. The form on the contact page works correctly and sends a message to the provided email address. All links work as they should. In the dinosaur description, the video displays correctly, thanks to my mentor. Adding and removing items from your cart works as intended. Editing your profile works fine.
+
 ### Deployment
 
 Local Development
@@ -268,6 +303,8 @@ pip3 install -r requirements.txt
 [YouTube Tutorials](https://www.youtube.com/): Many thanks to the numerous educators and developers on YouTube. Their shared knowledge and step-by-step tutorials provided clarity and depth to my understanding.
 
 [Stack Overflow](https://stackoverflow.co/): An essential resource during this journey. The community's expertise and shared experiences on Stack Overflow were immensely beneficial in navigating challenges and troubleshooting issues.
+
+[Ark Survival Evolved](https://en.wikipedia.org/wiki/Ark:_Survival_Evolved): Information about dinosaurs was taken from the wiki page. I was inspired by this game, which I am grateful for, because I had no specific idea for the project.
 
 Gratitude to all these resources for guiding me through this coding journey and for being reliable pillars of support.
 #### For help, advice and insperation
