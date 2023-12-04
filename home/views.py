@@ -5,7 +5,8 @@ from django.contrib.auth.decorators import login_required
 from .forms import ContactForm
 from .models import ContactMessage, PatchNote
 
-def index(request):    
+
+def index(request):
     most_selling_dinosaur = Dinosaur.objects.order_by('-attack_power').first()
     if not most_selling_dinosaur:
         most_selling_dinosaur = Dinosaur.objects.get(name='T-rex')
@@ -13,7 +14,8 @@ def index(request):
     context = {
         'most_selling_dinosaur': most_selling_dinosaur
     }
-    return render(request, 'home/index.html', context)    
+    return render(request, 'home/index.html', context)
+
 
 @login_required
 def contact(request):
@@ -22,7 +24,6 @@ def contact(request):
         if form.is_valid():
             subject = form.cleaned_data['subject']
             message = form.cleaned_data['message']
-            
             ContactMessage.objects.create(
                 user=request.user,
                 subject=subject,
@@ -30,16 +31,17 @@ def contact(request):
             )
 
             send_mail(subject, message, request.user.email, ['dinoshopark@gmail.com'])
-            
             return redirect('success_url')
-    else:
-        form = ContactForm()
+        else:
+            form = ContactForm()
 
     return render(request, 'contact/contact.html', {'form': form})
+
 
 def success(request):
     return render(request, 'home/success.html')
 
+
 def patch_notes(request):
     notes = PatchNote.objects.all().order_by('-created_at')
-    return render(request, 'news/patch_notes.html', {'notes': notes})    
+    return render(request, 'news/patch_notes.html', {'notes': notes})

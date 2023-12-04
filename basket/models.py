@@ -10,5 +10,3 @@ class BasketItem(models.Model):
 
     def __str__(self):
         return f"{self.dinosaur.name} (x{self.quantity})"
-
-        

@@ -9,7 +9,7 @@ class Checkout(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     email = models.EmailField()
     username_in_game = models.CharField(max_length=100)
-    server = models.CharField(max_length=100)    
+    server = models.CharField(max_length=100)
     total_price = models.DecimalField(max_digits=10, decimal_places=2)
     status = models.CharField(max_length=20, default='Pending')
     created_at = models.DateTimeField(auto_now_add=True)
@@ -27,4 +27,3 @@ class OrderItem(models.Model):
 
     def __str__(self):
         return f"{self.quantity} of {self.dinosaur.name} in {self.checkout}"
-

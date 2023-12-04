@@ -12,8 +12,9 @@ def view_profile(request):
     try:
         profile = UserProfile.objects.get(user=request.user)
     except UserProfile.DoesNotExist:
-        profile = None  
+        profile = None
     return render(request, 'view_profile.html', {'profile': profile})
+
 
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
@@ -21,6 +22,7 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
         UserProfile.objects.create(user=instance)
     else:
         UserProfile.objects.update_or_create(user=instance)
+
 
 def edit_profile(request):
     profile, created = UserProfile.objects.get_or_create(user=request.user)
@@ -34,7 +36,8 @@ def edit_profile(request):
 
     return render(request, 'edit_profile.html', {'form': form})
 
+
 @login_required
 def user_profile(request):
     transactions = Checkout.objects.filter(user=request.user).order_by('-created_at')
-    return render(request, 'view_profile.html', {'transactions': transactions})    
+    return render(request, 'view_profile.html', {'transactions': transactions})

@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
+
 def fetch_patch_notes():
     URL = 'https://ark.wiki.gg/wiki/Category:ARK:_Survival_Ascended_PC_patch_notes'
     page = requests.get(URL)
@@ -14,6 +15,7 @@ def fetch_patch_notes():
         notes.append({'title': title, 'content': content})
 
     return notes
+
 
 patch_notes = fetch_patch_notes()
 for note in patch_notes:
