@@ -31,11 +31,13 @@ def contact(request):
             )
 
             send_mail(subject, message, request.user.email, ['dinoshopark@gmail.com'])
+            
             return redirect('success_url')
-        else:
-            form = ContactForm()
+    else:        
+        form = ContactForm()
 
     return render(request, 'contact/contact.html', {'form': form})
+
 
 
 def success(request):
