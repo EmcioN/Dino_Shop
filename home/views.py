@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from products.models import Dinosaur
 from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required
-from .forms import ContactForm
+from .forms import ContactForm, NewsletterForm
 from .models import ContactMessage, PatchNote
 
 
@@ -47,3 +47,13 @@ def success(request):
 def patch_notes(request):
     notes = PatchNote.objects.all().order_by('-created_at')
     return render(request, 'news/patch_notes.html', {'notes': notes})
+
+def subscribe_newsletter(request):
+    if request.method == 'POST':
+        form = NewsletterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('success_url')
+    else:
+        form = NewsletterForm()
+    return render(request, 'contact/subscribe.html', {'form': form})    
