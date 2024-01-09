@@ -35,7 +35,7 @@ ALLOWED_HOSTS = [
     ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://dino-shop-1cd8a0c1d01d.herokuapp.com',
+    'https://dino-shop-1cd8a0c1d01d.herokuapp.com/',
     'https://8000-emcion-dinoshop-cus3frky6y1.ws-eu107.gitpod.io',
     ]
 
