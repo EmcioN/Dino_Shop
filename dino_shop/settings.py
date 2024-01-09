@@ -31,12 +31,12 @@ DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = [
     'dino-shop-1cd8a0c1d01d.herokuapp.com',
-    '8000-emcion-dinoshop-3l3a4wcpwgh.ws-eu106.gitpod.io'
+    '8000-emcion-dinoshop-cus3frky6y1.ws-eu107.gitpod.io',
     ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://dino-shop-1cd8a0c1d01d.herokuapp.com/',
-    'https://8000-emcion-dinoshop-3l3a4wcpwgh.ws-eu106.gitpod.io'
+    'https://dino-shop-1cd8a0c1d01d.herokuapp.com',
+    'https://8000-emcion-dinoshop-cus3frky6y1.ws-eu107.gitpod.io',
     ]
 
 # Application definition
