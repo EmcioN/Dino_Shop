@@ -33,8 +33,7 @@
 ### User Stories  
   * As a user who plays Ark: Survival Evolved, I want to see detailed information about each dinosaur, including its level, attributes, and any special abilities it may have.
   * As a user, I want to create an account with my personal details, email, and password so that I can track my orders and have a personalized experience.
-  * As a user and buyer, I want a straightforward and secure checkout process to make my purchases without any complications.
-  * As a user and customer, I want to receive email notifications confirming my orders and providing tracking information once my dinosaurs have been delivered.
+  * As a user and buyer, I want a straightforward and secure checkout process to make my purchases without any complications.  
   * As a user and gamer, I want the website to provide a responsive and user-friendly design that works well on both desktop and mobile devices.
   * As a user and shopper, I want to have access to customer support through email in case I have questions or encounter any issues while browsing or making a purchase.
 ### Site owner Goals
@@ -310,13 +309,14 @@ I tested the project continuously during production. Most things were done by tr
 
 All buttons have been tested and work as intended. Fields that are supposed to be displayed only for Superuser work as they should. Adding, removing or editing dinosaurs from the superuser level works without problems. The form on the contact page works correctly and sends a message to the provided email address. All links work as they should. In the dinosaur description, the video displays correctly, thanks to my mentor. Adding and removing items from your cart works as intended. Editing your profile works fine.
 
+* Table with tested working pages as a guest, user and admin
 
 | Test case            | Guest | User | Admin | Pass/failed |
 |----------------------|-------|------|-------|-------------|
 | Basket loop          | ❎     | ✅    | ✅     | Pass        |
 | Profile Edit         | ❎     | ✅    | ✅     | Pass        |
 | Profile login/Create | ✅     | ✅    | ✅     | Pass        |
-| Product Edit         | ❎     | ✅    | ✅     | Pass        |
+| Product Edit         | ❎     | ❎    | ✅     | Pass        |
 | Product View         | ✅     | ✅    | ✅     | Pass        |
 | Contact              | ❎     | ✅    | ✅     | Pass        |
 | Newsletter           | ✅     | ✅    | ✅     | Pass        |
@@ -326,13 +326,61 @@ All buttons have been tested and work as intended. Fields that are supposed to b
 
 * Newsletter Testing:
 
-I tested the newsletter and it seems to work properly. After entering the correct email address, we are redirected to the success page. It is saved in the database. If a given email is already subscribed to the newsletter, we receive a message that the email is already saved. If we enter an incorrect email address, we will also be informed.
+  I tested the newsletter and it seems to work properly. After entering the correct email address, we are redirected to the success page. It is saved in the database. If a given email is already subscribed to the newsletter, we receive a message that the email is already saved. If we enter an incorrect email address, we will also be informed.
+
+  Incorrect Email
 
 ![emailcorrect](/doc/images/newscorrecte.png)
 
+  Email exist
+
 ![emailexist](/doc/images/newsexist.png)
 
+  Success page
+
 ![success](/doc/images/success.png)
+
+
+#### User stories Test
+
+* As a user who plays Ark: Survival Evolved, I want to see detailed information about each dinosaur, including its level, attributes, and any special abilities it may have.
+
+  Each dino has a description, basic statistics, a photo and even a video of it in action
+
+![dinos](/doc/images/users.png)
+
+* As a user, I want to create an account with my personal details, email, and password so that I can track my orders and have a personalized experience.
+
+  Everyone can create their own account. You can edit your profile by adding a short description about yourself, a photo or links to social media
+
+![signup](/doc/images/usersignup.png)
+
+![profile](/doc/images/userprofile.png)
+
+
+* As a user and buyer, I want a straightforward and secure checkout process to make my purchases without any complications.
+
+  The shopping cart is very easy to use with no hidden features. The same applies to the payment method. Everything seems clear and easy to use
+
+![basket](/doc/images/userbasket.png)
+
+![payment](/doc/images/userpay.png)
+
+
+* As a user and gamer, I want the website to provide a responsive and user-friendly design that works well on both desktop and mobile devices.
+
+  The website works well on small screens and on large screens. The initial idea was to create a store that would work on small screens
+
+![small](/doc/images/usersmall.png)
+
+![big](/doc/images/userbig.png)
+
+
+* As a user and shopper, I want to have access to customer support through email in case I have questions or encounter any issues while browsing or making a purchase.
+
+  Each user can contact support via email address. This can be done by filling out a simple form. You can also subscribe to the newsletter to stay up to date
+
+![contact](/doc/images/usercontact.png)
 
 
 ### Deployment
