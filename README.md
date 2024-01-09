@@ -334,6 +334,16 @@ All buttons have been tested and work as intended. Fields that are supposed to b
 
 
 
+* Payment testing:
+
+  The payment method works. The transaction is saved in the transaction history on the user's profile. Everything seems to be properly connected to Stripe
+
+  ![history](/doc/images/history.png)
+
+  ![stripe](/doc/images/paymenttest.png)
+
+  ![stripe](/doc/images/paymenttest1.png)
+
 * Newsletter Testing:
 
   I tested the newsletter and it seems to work properly. After entering the correct email address, we are redirected to the success page. It is saved in the database. If a given email is already subscribed to the newsletter, we receive a message that the email is already saved. If we enter an incorrect email address, we will also be informed.
