@@ -222,6 +222,61 @@ I had the least problems with html. The only thing we forget about is setting th
 
 ![css](/doc/images/csserr.png)
 
+#### I tested each page one by one using source code and html validator:
+
+* Home
+
+![home](/doc/images/hometest.png)
+
+* Product view 
+
+![product](/doc/images/producttest.png)
+
+* Product detail
+
+![product](/doc/images/producttest2.png)
+
+* Login
+
+![Login](/doc/images/logintest.png)
+
+* Contact
+
+![contact](/doc/images/contacttest.png)
+
+* Profile
+
+![profile](/doc/images/profiletest.png)
+
+* Profile edit
+
+![profile](/doc/images/editprofiletest.png)
+
+* Newsletter
+
+![newsletter](/doc/images/newslettertest.png)
+
+* Basket
+
+![basket](/doc/images/baskettest.png)
+
+* Payment
+
+![payment](/doc/images/paytest.png)
+
+* Logout 
+
+![logout](/doc/images/logouttest.png)
+
+* Success Page
+
+![Success](/doc/images/successtest.png)
+
+* News
+
+![news](/doc/images/newstest.png)
+
+
 #### Css Validator
 
 While testing CSS, I encountered several problems. After taking advice on stackoverflow, I decided to move on, because these are not serious errors. The page looks as intended, so it shouldn't be a problem
@@ -273,11 +328,11 @@ All buttons have been tested and work as intended. Fields that are supposed to b
 
 I tested the newsletter and it seems to work properly. After entering the correct email address, we are redirected to the success page. It is saved in the database. If a given email is already subscribed to the newsletter, we receive a message that the email is already saved. If we enter an incorrect email address, we will also be informed.
 
-![user](/doc/images/newscorrecte.png)
+![emailcorrect](/doc/images/newscorrecte.png)
 
-![user](/doc/images/newsexist.png)
+![emailexist](/doc/images/newsexist.png)
 
-![user](/doc/images/success.png)
+![success](/doc/images/success.png)
 
 
 ### Deployment
