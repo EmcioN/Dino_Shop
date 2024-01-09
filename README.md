@@ -187,6 +187,16 @@ Newsletter:
 
 ![newsletter](/doc/images/btnf.png)
 
+* Facebook page:
+
+  I created a Facebook page dedicated to this store. It contains basic information, contact details, a link to the website and the opportunity to leave your opinion. This will definitely help in the development of the store.
+
+  ![facebook](/doc/images/facebook1.png)
+
+  ![facebook](/doc/images/facebook2.png)
+
+  ![facebook](/doc/images/facebook3.png)
+
 ### Future Plans
 
 I planned to do more with the project. Due to the deadline, not everything was completed as I would have liked. Login with Google has not been added yet, but is planned to be added. Same with Google Pay. I use Stripe as a payment method, but I would like to add Google Pay as a fallback method. The design lacks a polisher that would give the design a more professional look. I didn't have enough time to add webhooks to stripe. I plan to expand the project and add other products, such as raw materials. A lot of work has to be put into such a project. Unfortunately, I work long shifts and don't have enough time to devote to the project. I did as much as I could and I'm partially satisfied with it.
