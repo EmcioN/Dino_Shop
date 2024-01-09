@@ -1,8 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from products.models import Dinosaur
-from user.models import UserProfile
-from django.utils import timezone
 
 
 class Checkout(models.Model):

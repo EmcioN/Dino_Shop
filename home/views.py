@@ -39,7 +39,6 @@ def contact(request):
     return render(request, 'contact/contact.html', {'form': form})
 
 
-
 def success(request):
     return render(request, 'home/success.html')
 
@@ -47,6 +46,7 @@ def success(request):
 def patch_notes(request):
     notes = PatchNote.objects.all().order_by('-created_at')
     return render(request, 'news/patch_notes.html', {'notes': notes})
+
 
 def subscribe_newsletter(request):
     if request.method == 'POST':
@@ -56,4 +56,4 @@ def subscribe_newsletter(request):
             return redirect('success_url')
     else:
         form = NewsletterForm()
-    return render(request, 'contact/subscribe.html', {'form': form})    
+    return render(request, 'contact/subscribe.html', {'form': form})

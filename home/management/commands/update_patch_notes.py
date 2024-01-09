@@ -8,5 +8,6 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         notes = fetch_patch_notes()
-        for note in notes:            
-            PatchNote.objects.update_or_create(title=note['title'], defaults={'content': note['content']})
+        for note in notes:
+            PatchNote.objects.update_or_create(title=note['title'],
+             defaults={'content': note['content']})

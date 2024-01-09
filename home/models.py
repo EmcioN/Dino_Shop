@@ -20,6 +20,7 @@ class PatchNote(models.Model):
     def __str__(self):
         return self.title
 
+
 class NewsletterSubscriber(models.Model):
     email = models.EmailField(unique=True)
     date_added = models.DateTimeField(auto_now_add=True)
