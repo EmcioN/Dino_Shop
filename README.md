@@ -255,6 +255,31 @@ I tested the project continuously during production. Most things were done by tr
 
 All buttons have been tested and work as intended. Fields that are supposed to be displayed only for Superuser work as they should. Adding, removing or editing dinosaurs from the superuser level works without problems. The form on the contact page works correctly and sends a message to the provided email address. All links work as they should. In the dinosaur description, the video displays correctly, thanks to my mentor. Adding and removing items from your cart works as intended. Editing your profile works fine.
 
+
+| Test case            | Guest | User | Admin | Pass/failed |
+|----------------------|-------|------|-------|-------------|
+| Basket loop          | ❎     | ✅    | ✅     | Pass        |
+| Profile Edit         | ❎     | ✅    | ✅     | Pass        |
+| Profile login/Create | ✅     | ✅    | ✅     | Pass        |
+| Product Edit         | ❎     | ✅    | ✅     | Pass        |
+| Product View         | ✅     | ✅    | ✅     | Pass        |
+| Contact              | ❎     | ✅    | ✅     | Pass        |
+| Newsletter           | ✅     | ✅    | ✅     | Pass        |
+
+
+
+
+* Newsletter Testing:
+
+I tested the newsletter and it seems to work properly. After entering the correct email address, we are redirected to the success page. It is saved in the database. If a given email is already subscribed to the newsletter, we receive a message that the email is already saved. If we enter an incorrect email address, we will also be informed.
+
+![user](/doc/images/newscorrecte.png)
+
+![user](/doc/images/newsexist.png)
+
+![user](/doc/images/success.png)
+
+
 ### Deployment
 
 Local Development
