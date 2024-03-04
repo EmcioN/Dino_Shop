@@ -16,13 +16,16 @@ class Checkout(models.Model):
 
     def __str__(self):
         return f"Checkout by {self.user.username} for {self.total_price}"
+    
+    def update_total(self):
+        self.total_price = sum(item.quantity * item.dinosaur.price for item in self.orderitem_set.all())
+        self.save()
 
 
 class OrderItem(models.Model):
     checkout = models.ForeignKey(Checkout, on_delete=models.CASCADE)
     dinosaur = models.ForeignKey(Dinosaur, on_delete=models.CASCADE)
-    quantity = models.IntegerField(default=1)
-    order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=1)    
 
     def __str__(self):
         return f"{self.quantity} of {self.dinosaur.name} in {self.checkout}"
