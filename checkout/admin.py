@@ -5,7 +5,7 @@ from .models import Checkout, OrderItem
 @admin.register(Checkout)
 class CheckoutAdmin(admin.ModelAdmin):
     list_display = ('user', 'email', 'total_price', 'status',
-                    'created_at', 'payment_method', 'transaction_id')
+                    'created_at', 'payment_method', 'transaction_id', 'dinosaur', 'quantity')
     list_filter = ('status', 'created_at', 'payment_method')
     search_fields = ('user__username', 'email', 'transaction_id')
     readonly_fields = ('created_at', 'transaction_id')
