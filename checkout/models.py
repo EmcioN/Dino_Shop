@@ -22,6 +22,7 @@ class OrderItem(models.Model):
     checkout = models.ForeignKey(Checkout, on_delete=models.CASCADE)
     dinosaur = models.ForeignKey(Dinosaur, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
+    order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.quantity} of {self.dinosaur.name} in {self.checkout}"
