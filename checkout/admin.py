@@ -13,7 +13,7 @@ class CheckoutAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
             'fields': ('user', 'email', 'username_in_game', 'server',
-                       'total_price', 'status', 'payment_method')
+                       'total_price', 'status', 'payment_method', 'dinosaur', 'quantity')
         }),
         ('Advanced options', {
             'classes': ('collapse',),
