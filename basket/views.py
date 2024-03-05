@@ -4,6 +4,7 @@ from products.models import Dinosaur
 from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def view_basket(request):
     basket_items = BasketItem.objects.filter(user=request.user)
     total_price = sum(item.quantity * item.dinosaur.price for item in basket_items)
@@ -17,12 +18,14 @@ def view_basket(request):
 
 @login_required
 def add_to_basket(request, dinosaur_id):
-    dinosaur = Dinosaur.objects.get(id=dinosaur_id)
+    dinosaur = get_object_or_404(Dinosaur, id=dinosaur_id)
     BasketItem.objects.create(user=request.user, dinosaur=dinosaur, quantity=1)
     return redirect('all_dinosaurs')
 
 
 def increase_quantity(request, item_id):
+    if not request.user.is_authenticated:
+        return redirect('login')
     item = get_object_or_404(BasketItem, id=item_id, user=request.user)
     item.quantity += 1
     item.save()
@@ -30,6 +33,8 @@ def increase_quantity(request, item_id):
 
 
 def decrease_quantity(request, item_id):
+    if not request.user.is_authenticated:
+        return redirect('login')
     item = get_object_or_404(BasketItem, id=item_id, user=request.user)
     item.quantity -= 1
     if item.quantity <= 0:
