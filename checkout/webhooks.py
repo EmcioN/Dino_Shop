@@ -10,7 +10,7 @@ from .webhook_handler import StripeWH_Handler
 @require_POST
 @csrf_exempt
 def webhook(request):
-    endpoint_secret = settings.STRIPE_WEBHOOK_SECRET
+    endpoint_secret = settings.STRIPE_WH_SECRET
     payload = request.body
     sig_header = request.META.get('HTTP_STRIPE_SIGNATURE')
     event = None
