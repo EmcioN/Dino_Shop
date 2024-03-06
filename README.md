@@ -344,6 +344,16 @@ All buttons have been tested and work as intended. Fields that are supposed to b
 
   ![stripe](/doc/images/paymenttest1.png)
 
+  ![stripe](/doc/images/adminpanel.png)
+
+  ![stripe](/doc/images/webhooks.png)
+
+  ![stripe](/doc/images/payments.png)
+
+  ![stripe](/doc/images/striped.png)
+
+  ![stripe](/doc/images/profilethistory.png)
+
 * Newsletter Testing:
 
   I tested the newsletter and it seems to work properly. After entering the correct email address, we are redirected to the success page. It is saved in the database. If a given email is already subscribed to the newsletter, we receive a message that the email is already saved. If we enter an incorrect email address, we will also be informed.
