@@ -62,3 +62,24 @@ class StripeWH_Handler:
         send_mail(subject, message, email_from, recipient_list)
 
         return JsonResponse({'status': 'success', 'message': 'PaymentIntent failed received'}, status=200)
+
+    def handle_charge_succeeded(self, event):
+        charge = event['data']['object']
+        transaction_id = charge['id']
+
+        try:
+            checkout = Checkout.objects.get(transaction_id=transaction_id)
+            checkout.status = 'Completed'
+            checkout.save()
+
+            email = checkout.email
+            subject = "Your payment was successful!"
+            message = f"Dear {checkout.username_in_game},\n\nYour payment for the server {checkout.server} was successful. Thank you for your purchase."
+            email_from = settings.EMAIL_HOST_USER
+            recipient_list = [email]
+            send_mail(subject, message, email_from, recipient_list)
+
+            return JsonResponse({'status': 'success', 'message': 'Charge succeeded received and handled'}, status=200)
+        except Checkout.DoesNotExist:
+            logger.error('Checkout instance not found for transaction_id: %s', transaction_id)
+            return JsonResponse({'status': 'error', 'message': 'Checkout not found'}, status=400)
