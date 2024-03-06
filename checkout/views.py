@@ -4,6 +4,7 @@ from django.conf import settings
 from .models import Checkout, OrderItem
 from basket.models import BasketItem
 from django.contrib.auth.decorators import login_required
+from django.utils.crypto import get_random_string
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -18,13 +19,13 @@ def checkout(request):
         server = request.POST.get('server')
         email = request.POST.get('email')
         token = request.POST.get('stripeToken')
+        transaction_id = get_random_string(32)
 
         try:
-            charge = stripe.Charge.create(
-                amount=int(total_price * 100),
-                currency='usd',
-                description='Dinosaur Purchase',
-                source=token,
+            payment_intent = create_payment_intent_with_metadata(
+                transaction_id,
+                int(total_price * 100),
+                'usd'
             )
 
             checkout = Checkout.objects.create(
@@ -34,7 +35,7 @@ def checkout(request):
                 server=server,
                 total_price=total_price,
                 payment_method='Stripe',
-                transaction_id=charge.id,
+                transaction_id=transaction_id,
             )
 
             for item in basket_items:
@@ -61,3 +62,11 @@ def checkout(request):
 
 def checkout_success(request):
     return render(request, 'checkout/success.html')
+
+
+def create_payment_intent_with_metadata(transaction_id, amount, currency="usd"):
+    return stripe.PaymentIntent.create(
+        amount=amount,
+        currency=currency,
+        metadata={"transaction_id": transaction_id}
+    )
