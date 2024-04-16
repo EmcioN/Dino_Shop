@@ -23,6 +23,7 @@ def webhook(request):
         return HttpResponse(status=400)
     except stripe.error.SignatureVerificationError as e:
         return HttpResponse(status=400)
+        
 
     handler = StripeWH_Handler(request)
 
